@@ -23,6 +23,7 @@ find_package(tf2_ros REQUIRED)
 
 add_executable(kobuki_node src/kobuki_node.cpp)
 ament_target_dependencies(kobuki_node
+  "kobuki_driver"
   "geometry_msgs"
   "nav_msgs"
   "rclcpp"
