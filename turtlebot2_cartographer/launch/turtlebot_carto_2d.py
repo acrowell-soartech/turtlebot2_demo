@@ -15,7 +15,7 @@
 import os
 
 from ament_index_python.packages import get_package_share_directory
-from launch.exit_handler import restart_exit_handler
+from launch.legacy.exit_handler import restart_exit_handler
 from ros2run.api import get_executable_path
 
 
@@ -75,18 +75,18 @@ def launch(launch_descriptor, argv):
         name='static_tf_pub_rgb_depth',
         exit_handler=restart_exit_handler,
     )
-    package = 'joy'
-    ld.add_process(
-        cmd=[get_executable_path(package_name=package, executable_name='joy_node')],
-        name='joy_node',
-        exit_handler=restart_exit_handler,
-    )
-    package = 'teleop_twist_joy'
-    ld.add_process(
-        cmd=[get_executable_path(package_name=package, executable_name='teleop_node')],
-        name='teleop_node',
-        exit_handler=restart_exit_handler,
-    )
+    #package = 'joy'
+    #ld.add_process(
+    #    cmd=[get_executable_path(package_name=package, executable_name='joy_node')],
+    #    name='joy_node',
+    #    exit_handler=restart_exit_handler,
+    #)
+    #package = 'teleop_twist_joy'
+    #ld.add_process(
+    #    cmd=[get_executable_path(package_name=package, executable_name='teleop_node')],
+    #    name='teleop_node',
+    #    exit_handler=restart_exit_handler,
+    #)
     package = 'cartographer_ros'
     turtlebot2_cartographer_prefix = get_package_share_directory('turtlebot2_cartographer')
     cartographer_config_dir = os.path.join(turtlebot2_cartographer_prefix, 'configuration_files')
