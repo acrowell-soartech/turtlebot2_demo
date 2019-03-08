@@ -99,5 +99,14 @@ def launch(launch_descriptor, argv):
         name='cartographer_node',
         exit_handler=restart_exit_handler,
     )
+    ld.add_process(
+        cmd=[
+            get_executable_path(package_name=package, executable_name='occupancy_grid_node')
+
+        ],
+        name='occupancy_grid_node',
+        exit_handler=restart_exit_handler,
+    )
+
 
     return ld
